@@ -1,0 +1,12 @@
+/.idea/.gitignore
+/.idea/dataSources.xml
+/emensa/storage/cache/emensa.anmeldung_werbeseite.bladec
+/emensa/storage/cache/emensa.index.bladec
+/emensa/storage/cache/emensa.layout.bladec
+/emensa/storage/cache/emensa.profile.bladec
+/emensa/storage/cache/home.bladec
+/emensa/storage/cache/layout.bladec
+/.idea/M6.iml
+/.idea/modules.xml
+/.idea/sqldialects.xml
+/.idea/vcs.xml
