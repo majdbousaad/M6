@@ -72,3 +72,20 @@ function safe_bewertung($sternebewertung, $bemerkung, $benutzer_id,$gericht_id) 
         mysqli_close($link);
     }
 
+    function bewertungenHome(){
+        $link = connectdb();
+
+        $sql = "SELECT gericht.name,  bewertung.bemerkung, bewertung.sternebewertung 
+                FROM bewertung 
+                INNER JOIN gericht ON bewertung.gericht_id = gericht.id
+                where hervorheben = 1
+                ORDER BY bewertungszeitpunkt DESC";
+
+        $result = mysqli_query($link, $sql);
+        $data = mysqli_fetch_all($result, MYSQLI_NUM);
+
+        mysqli_close($link);
+
+        return $data;
+    }
+

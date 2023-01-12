@@ -28,6 +28,8 @@
                 <li> <a href="/home#zahlen">Zahlen</a></li>
                 <li> <a href="/home#kontakt">Kontakt</a></li>
                 <li> <a href="/home#wichtig">Wichtig für uns</a></li>
+                <li> <a href="/bewertungen">Bewertungen</a></li>
+
             </ul>
 
 

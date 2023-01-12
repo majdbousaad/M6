@@ -106,6 +106,30 @@
         </ul>
         <br>
         <br>
+
+    </div>
+
+    <div class="grid-main-element" id="wichtig">
+        <h1>Meinungen unserer Gäste</h1>
+
+        <table class="border">
+            <tr>
+                <th>Gerichtsname</th>
+                <th>Bemerkung</th>
+                <th>Bewertung</th>
+            </tr>
+            @forelse($bewertungen as $bewertung)
+
+                <tr>
+                    @foreach($bewertung as $field)
+                        <td>{{$field}}</td>
+                    @endforeach
+                </tr>
+            @empty
+                keine Meinungen in der Datenbank
+            @endforelse
+        </table>
+
     </div>
 @endsection
 

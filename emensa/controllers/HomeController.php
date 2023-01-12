@@ -78,13 +78,15 @@ class HomeController
         $zahlen_anmeldungen = db_zahlen_anmeldungen();
         $zahlen_besucher = db_zahlen_besucher();
 
+        $bewertungen = bewertungenHome();
         return view('emensa.index', [
             'rd' => $rd,
             'gerichte' => $gerichte,
             'allerge_codes' => $allerge_codes,
             'zahlen_gerichte' => $zahlen_gerichte,
             'zahlen_anmeldungen' => $zahlen_anmeldungen,
-            'zahlen_besucher' => $zahlen_besucher
+            'zahlen_besucher' => $zahlen_besucher,
+            'bewertungen' => $bewertungen
         ]);
 
     }
@@ -134,22 +136,7 @@ class HomeController
         }
         else {
             safe_bewertung($sternebewertung,$bemerkung,$_SESSION['cookie'],$_SESSION['gerichtid']);
-            $gerichte = zufaellige_gerichte();
-            $allerge_codes = codes_from_zufaellige_gerichte($gerichte);
-
-            $zahlen_gerichte = db_zahlen_gerichte();
-            $zahlen_anmeldungen = db_zahlen_anmeldungen();
-            $zahlen_besucher = db_zahlen_besucher();
-
-
-            return view('emensa.index', [
-                'rd' => $rd,
-                'gerichte' => $gerichte,
-                'allerge_codes' => $allerge_codes,
-                'zahlen_gerichte' => $zahlen_gerichte,
-                'zahlen_anmeldungen' => $zahlen_anmeldungen,
-                'zahlen_besucher' => $zahlen_besucher
-            ]);
+            header('Location: /home');
         }
     }
 
