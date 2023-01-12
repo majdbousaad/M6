@@ -28,6 +28,7 @@ class AuthenticationController
         if ( $data != null) {
             $_SESSION['login_ok'] = true;
             $_SESSION['cookie'] = $data['id'];
+            $_SESSION['benutzer_id'] = $data['id'];
             $_SESSION['benutzer_name'] = $data['name'];
 
             // Monolog logger benutzer logged in

@@ -31,6 +31,8 @@
                         @if($gericht['code'] != "")
                             <span style="color: #D8000C">({{$gericht['code']}})</span>
                         @endif
+                        <a href="/bewertung?gerichtid={{$gericht['id']}}">Bewerten</a>
+
 
                     </td>
                     <td>{{$gericht['preis_intern']}}</td>

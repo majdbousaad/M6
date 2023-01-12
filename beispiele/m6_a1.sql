@@ -6,7 +6,7 @@ CREATE TABLE bewertung (
                            bewertungszeitpunkt datetime DEFAULT current_timestamp,
                            benutzer_id bigint(20) not null,
                            gericht_id bigint(20) not null,
-                           CHECK ( sternebewertung = 'sehr gut' OR 'gut' OR 'schlecht' OR 'sehr schlecht'),
+                           CHECK ( sternebewertung = 'sehr gut' OR sternebewertung = 'gut' OR sternebewertung = 'schlecht' OR sternebewertung = 'sehr schlecht'),
                            CHECK ( LENGTH(bemerkung) >= 5 )
 );
 

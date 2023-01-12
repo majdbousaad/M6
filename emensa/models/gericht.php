@@ -55,7 +55,7 @@ function zufaellige_gerichte(){
     try {
         $link = connectdb();
 
-        $sql = "SELECT name, 
+        $sql = "SELECT id, name, 
                                preis_intern, 
                                preis_extern,
                                bildname,
@@ -123,4 +123,25 @@ function codes_from_zufaellige_gerichte($data) {
     }
 
 
+}
+
+function gericht_bewertung($id) {
+    try {
+        $link = connectdb();
+
+        $sql = "SELECT name, bildname FROM gericht WHERE id = '$id'";
+        $result = mysqli_query($link, $sql);
+
+        $data = mysqli_fetch_all($result, MYSQLI_BOTH);
+
+        mysqli_close($link);
+    }
+    catch (Exception $ex) {
+        $data[0] = array(
+            'id'=>'-1',
+            'error'=>true,
+            'name' => 'Datenbankfehler '.$ex->getCode(),
+            'beschreibung' => $ex->getMessage());
+    }
+    return $data[0];
 }

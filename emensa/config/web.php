@@ -26,5 +26,13 @@ return array(
     '/anmeldung' => 'AuthenticationController@anmeldung',
     '/verifizierung' => 'AuthenticationController@verifizierung',
     '/profile' => 'HomeController@profile',
-    '/abmelden' => 'AuthenticationController@abmelden'
+    '/abmelden' => 'AuthenticationController@abmelden',
+    '/bewertung' => 'HomeController@bewertung',
+    '/bewertung_verarbeitung' => 'HomeController@bewertung_verarbeitung',
+    '/meinebewertungen' => 'HomeController@meinebewertungen',
+    '/bewertungloeschen' => 'HomeController@bewertungloeschen',
+    '/bewertungen' => 'HomeController@bewertungen'
+
+
+
 );
