@@ -4,6 +4,14 @@
     Meine Bewertungen
 @endsection
 
+@section("cssextra")
+    <style>
+        .hervorheben{
+            background-color: #669955;
+        }
+    </style>
+
+@endsection
 @section('main')
     <grid class="grid-main-element">
     <table>
@@ -20,7 +28,7 @@
             @endif
         </tr>
     @foreach($bewertungen as $bewertung)
-        <tr>
+        <tr @if($bewertung["hervorheben"]) class="hervorheben"  @endif>
             <td>{{$bewertung['name']}}</td>
             <td>{{$bewertung['bewertungszeitpunkt']}}</td>
             <td>{{$bewertung['bemerkung']}}</td>

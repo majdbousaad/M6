@@ -11,6 +11,7 @@
     <link href="css/emensa.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     @yield("head")
+    @yield("cssextra")
 </head>
 <body style="margin-bottom: 900px">
 <div class="frame border">
