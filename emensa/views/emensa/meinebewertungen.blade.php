@@ -14,6 +14,12 @@
 @endsection
 @section('main')
     <grid class="grid-main-element">
+
+        <form action="/bewertungen" method="GET">
+            <label for="gerichtsfilter">Gerichts Filter:</label>
+            <input id="gerichtsfilter" type="text" name="gerichtsfilter"/>
+            <input type="submit" value="filter"/>
+        </form>
     <table>
         <tr>
             <td>Gericht</td>

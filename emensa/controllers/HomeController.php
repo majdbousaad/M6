@@ -166,7 +166,15 @@ class HomeController
     function bewertungen() {
         $benutzer_id = $_SESSION['benutzer_id'];
         echo $benutzer_id;
-        $data = letzte_30();
+        $filter = null;
+        if(isset($_GET["gerichtsfilter"])){
+            $filter = $_GET["gerichtsfilter"];
+        }else{
+            $filter = "";
+
+        }
+
+        $data = letzte_30($filter);
         return view('emensa.meinebewertungen',[
             'bewertungen' => $data
         ]);

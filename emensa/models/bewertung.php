@@ -29,12 +29,13 @@ function safe_bewertung($sternebewertung, $bemerkung, $benutzer_id,$gericht_id) 
     }
 
 
-    function letzte_30() {
+    function letzte_30($filter) {
         $link = connectdb();
 
         $sql = "SELECT bewertung.hervorheben, bewertung.bewertungszeitpunkt, bewertung.bemerkung, bewertung.sternebewertung, bewertung.id, bewertung.benutzer_id, gericht.name 
                 FROM bewertung 
                 INNER JOIN gericht ON bewertung.gericht_id = gericht.id
+                where gericht.name like '%$filter%'
                 ORDER BY bewertungszeitpunkt DESC 
                 LIMIT 30";
         $result = mysqli_query($link, $sql);
