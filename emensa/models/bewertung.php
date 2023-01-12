@@ -32,7 +32,7 @@ function safe_bewertung($sternebewertung, $bemerkung, $benutzer_id,$gericht_id) 
     function letzte_30() {
         $link = connectdb();
 
-        $sql = "SELECT bewertung.bewertungszeitpunkt, bewertung.bemerkung, bewertung.sternebewertung, bewertung.id, bewertung.benutzer_id, gericht.name 
+        $sql = "SELECT bewertung.hervorheben, bewertung.bewertungszeitpunkt, bewertung.bemerkung, bewertung.sternebewertung, bewertung.id, bewertung.benutzer_id, gericht.name 
                 FROM bewertung 
                 INNER JOIN gericht ON bewertung.gericht_id = gericht.id
                 ORDER BY bewertungszeitpunkt DESC 

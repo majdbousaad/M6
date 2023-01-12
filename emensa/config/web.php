@@ -31,7 +31,9 @@ return array(
     '/bewertung_verarbeitung' => 'HomeController@bewertung_verarbeitung',
     '/meinebewertungen' => 'HomeController@meinebewertungen',
     '/bewertungloeschen' => 'HomeController@bewertungloeschen',
-    '/bewertungen' => 'HomeController@bewertungen'
+    '/bewertungen' => 'HomeController@bewertungen',
+    '/bewertungshervorheben' => 'HomeController@hervorheben'
+
 
 
 

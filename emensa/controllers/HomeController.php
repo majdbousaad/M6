@@ -163,13 +163,13 @@ class HomeController
     }
 
     function bewertungloeschen() {
-        $id = $_GET['gerichtid'];
+        $id = $_GET['bewertungsid'];
         echo $id;
         bewertung_loeschen($id);
         $data = gericht_bewertung($id);
         $bewertungen = letzte_30();
         return view('emensa.bewertung',[
-            'gerichtid' => $id,
+            'bewertungsid' => $id,
             'name' => $data['name'],
             'bildname' => $data['bildname'],
             'bewertungen' => $bewertungen
@@ -186,7 +186,19 @@ class HomeController
     }
 
 
+    function hervorheben(RequestData $rd){
 
+        $bewertungsid = $rd->query["berwertungsid"];
+
+        $link = connectdb();
+        mysqli_query($link, "Update bewertung set hervorheben = 1 where id = '$bewertungsid'");
+
+        $data = letzte_30();
+        return view('emensa.meinebewertungen',[
+            'bewertungen' => $data
+        ]);
+
+    }
 
 
 }

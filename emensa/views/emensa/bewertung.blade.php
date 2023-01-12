@@ -46,7 +46,7 @@
                     <td>{{$bewertung['bemerkung']}}</td>
                     <td>{{$bewertung['sternebewertung']}}</td>
                     <td>@if($bewertung['benutzer_id'] == $_SESSION['cookie'])
-                            <a href="/bewertungloeschen?gerichtid={{$bewertung['id']}}">Löschen</a>@endif</td>
+                            <a href="/bewertungloeschen?bewertungsid={{$bewertung['id']}}">Löschen</a>@endif</td>
                 </tr>
             @endforeach
         </table>

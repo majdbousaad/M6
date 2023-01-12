@@ -12,7 +12,12 @@
             <td>Bewertungszeitpunkt</td>
             <td>Bemerkung</td>
             <td>Sternebewertung</td>
-            <td></td>
+            @if($_SESSION['admin'] == true)
+                <td></td>
+                <td></td>
+            @elseif($bewertung["benutzer_id"] == $_SESSION['benutzer_id'])
+                <td></td>
+            @endif
         </tr>
     @foreach($bewertungen as $bewertung)
         <tr>
@@ -20,9 +25,19 @@
             <td>{{$bewertung['bewertungszeitpunkt']}}</td>
             <td>{{$bewertung['bemerkung']}}</td>
             <td>{{$bewertung['sternebewertung']}}</td>
-            @if($bewertung["benutzer_id"] == $_SESSION['benutzer_id'])
-                 <td><a href="/bewertungloeschen?gerichtid={{$bewertung['id']}}">Löschen</a></td>
+
+            @if($_SESSION['admin'] == true)
+                <td>
+                @if($bewertung["benutzer_id"] == $_SESSION['benutzer_id'])
+                    <a href="/bewertungloeschen?berwertungsid={{$bewertung['id']}}">Löschen</a>
+                @endif
+                </td>
+
+                <td><a href="/bewertungshervorheben?berwertungsid={{$bewertung['id']}}">@if($bewertung["hervorheben"]) Hervorhebung abwählen @else Hervorheben @endif </a></td>
+            @elseif($bewertung["benutzer_id"] == $_SESSION['benutzer_id'])
+                <td><a href="/bewertungloeschen?berwertungsid={{$bewertung['id']}}">Löschen</a></td>
             @endif
+
         </tr>
         @endforeach
     </table>

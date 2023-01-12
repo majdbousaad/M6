@@ -30,6 +30,7 @@ class AuthenticationController
             $_SESSION['cookie'] = $data['id'];
             $_SESSION['benutzer_id'] = $data['id'];
             $_SESSION['benutzer_name'] = $data['name'];
+            $_SESSION['admin'] = $data['admin'];
 
             // Monolog logger benutzer logged in
             $logger->info('User '.$data['name'].' logged in.');
