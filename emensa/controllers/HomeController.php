@@ -189,9 +189,10 @@ class HomeController
     function hervorheben(RequestData $rd){
 
         $bewertungsid = $rd->query["berwertungsid"];
+        $wert = $rd->query["wert"];
 
         $link = connectdb();
-        mysqli_query($link, "Update bewertung set hervorheben = 1 where id = '$bewertungsid'");
+        mysqli_query($link, "Update bewertung set hervorheben = '$wert' where id = '$bewertungsid'");
 
         $data = letzte_30();
         return view('emensa.meinebewertungen',[

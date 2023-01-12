@@ -33,7 +33,7 @@
                 @endif
                 </td>
 
-                <td><a href="/bewertungshervorheben?berwertungsid={{$bewertung['id']}}">@if($bewertung["hervorheben"]) Hervorhebung abwählen @else Hervorheben @endif </a></td>
+                <td><a href="/bewertungshervorheben?berwertungsid={{$bewertung['id']}}&wert=@if($bewertung["hervorheben"]) 0 @else 1 @endif">@if($bewertung["hervorheben"]) Hervorhebung abwählen @else Hervorheben @endif </a></td>
             @elseif($bewertung["benutzer_id"] == $_SESSION['benutzer_id'])
                 <td><a href="/bewertungloeschen?berwertungsid={{$bewertung['id']}}">Löschen</a></td>
             @endif
