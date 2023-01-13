@@ -150,20 +150,14 @@ class HomeController
     }
 
     function bewertungloeschen() {
-        $id = $_GET['bewertungsid'];
+        $id = $_GET['berwertungsid'];
         echo $id;
         bewertung_loeschen($id);
-        $data = gericht_bewertung($id);
-        $bewertungen = letzte_30();
-        return view('emensa.bewertung',[
-            'bewertungsid' => $id,
-            'name' => $data['name'],
-            'bildname' => $data['bildname'],
-            'bewertungen' => $bewertungen
-        ]);
+        header("Location: " . $_SESSION["target"]);
     }
 
     function bewertungen() {
+        $_SESSION["target"] = '/bewertungen';
         $benutzer_id = $_SESSION['benutzer_id'];
         echo $benutzer_id;
         $filter = null;
@@ -173,6 +167,7 @@ class HomeController
             $filter = "";
 
         }
+
 
         $data = letzte_30($filter);
         return view('emensa.meinebewertungen',[
@@ -189,7 +184,7 @@ class HomeController
         $link = connectdb();
         mysqli_query($link, "Update bewertung set hervorheben = '$wert' where id = '$bewertungsid'");
 
-        $data = letzte_30();
+        $data = letzte_30("");
         return view('emensa.meinebewertungen',[
             'bewertungen' => $data
         ]);
