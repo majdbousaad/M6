@@ -16,7 +16,7 @@
 00_image_missing.jpg
         @endif"
              alt="Gericht" width="100" height="100">
-        <form method="post" action="/bewertung_verarbeitung">
+        <form method="post" action="/bewertung_verarbeitung?gerichtid={{$gerichtid}}">
             <label>Sternebewertung</label>
             <select name="sternebewertung" id="sternebewertung">
                 <option value="sehr gut">Sehr gut</option>

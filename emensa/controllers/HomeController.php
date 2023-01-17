@@ -132,7 +132,7 @@ class HomeController
         if (strlen($bemerkung) < 5) {
             $_SESSION['error_message'] =
                 'Die Bemerkung muss mindestens 5 Zeichen lang sein.';
-            header('Location: /bewertung');
+            header('Location: /bewertung?gerichtid='.$_GET['gerichtid']);
         }
         else {
             safe_bewertung($sternebewertung,$bemerkung,$_SESSION['cookie'],$_SESSION['gerichtid']);
