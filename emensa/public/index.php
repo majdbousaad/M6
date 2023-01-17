@@ -6,6 +6,8 @@ const CONFIG_DB = "/../config/db.php";
 
 session_start();
 
+error_reporting(E_ERROR | E_PARSE);
+
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 

@@ -142,8 +142,9 @@ class HomeController
 
     function meinebewertungen() {
         $benutzer_id = $_SESSION['benutzer_id'];
-        echo $benutzer_id;
-        $data = bewertungen_benutzer($benutzer_id);
+        $_SESSION["target"] = '/meinebewertungen';
+        $filter = $_GET["gerichtsfilter"] ?? "";
+        $data = bewertungen_benutzer($benutzer_id, $filter);
         return view('emensa.meinebewertungen',[
             'bewertungen' => $data
         ]);

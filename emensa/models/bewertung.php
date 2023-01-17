@@ -46,13 +46,13 @@ function safe_bewertung($sternebewertung, $bemerkung, $benutzer_id,$gericht_id) 
         return $data;
     }
 
-    function bewertungen_benutzer($benutzerid) {
+    function bewertungen_benutzer($benutzerid, $filter) {
         $link = connectdb();
 
         $sql = "SELECT bewertung.benutzer_id, bewertung.bewertungszeitpunkt, bewertung.bemerkung, bewertung.sternebewertung, gericht.name 
                 FROM bewertung 
                 INNER JOIN gericht ON bewertung.gericht_id = gericht.id
-                WHERE benutzer_id = '$benutzerid'
+                WHERE benutzer_id = '$benutzerid' and name LIKE '%$filter%'
                 ORDER BY bewertungszeitpunkt DESC";
 
         $result = mysqli_query($link, $sql);
