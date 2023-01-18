@@ -11,10 +11,7 @@
 @section('main')
     <div class="grid-bewertung-element">
         <h1>Bewertung zu {{$name}}</h1>
-        <img id="bild_bewertung" src="/img/gerichte/@if($bildname != null){{$bildname}}
-        @else
-00_image_missing.jpg
-        @endif"
+        <img id="bild_bewertung" src="/img/gerichte/{{$bildname}}"
              alt="Gericht" width="100" height="100">
         <form method="post" action="/bewertung_verarbeitung?gerichtid={{$gerichtid}}">
             <label>Sternebewertung</label>
