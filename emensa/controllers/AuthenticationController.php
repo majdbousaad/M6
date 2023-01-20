@@ -14,7 +14,12 @@ class AuthenticationController
 
         // Monolog logger benutzer logged out
         $logger->info('User '.$_SESSION['benutzer_name'].' logged out.');
-        session_unset();
+        unset($_SESSION["benutzer_id"]);
+        unset($_SESSION["benutzer_name"]);
+        unset($_SESSION['login_ok']);
+        unset($_SESSION['cookie']);
+        unset($_SESSION['admin']);
+        unset($_SESSION["target"]);
         header('Location: /home');
     }
 
@@ -34,8 +39,9 @@ class AuthenticationController
 
             // Monolog logger benutzer logged in
             $logger->info('User '.$data['name'].' logged in.');
+            $target = $_SESSION["target"] ?? "/home";
 
-            header('Location: /home');
+            header("Location: $target");
         } else {
             // Monolog logger benutzer logged in
             $logger->warning('Email '.$email.' konnte nicht einloggen.');

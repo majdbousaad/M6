@@ -106,9 +106,8 @@ class HomeController
 
     function bewertung() {
         if (!isset($_SESSION['login_ok']) || !$_SESSION['login_ok']) {
-            $_SESSION['target'] = '/bewertung';
+            $_SESSION['target'] = '/bewertung?gerichtid='.$_GET["gerichtid"];
             header('Location: /anmeldung');
-            return;
         }
         else {
             $id = $_GET['gerichtid'];
@@ -136,7 +135,7 @@ class HomeController
         }
         else {
             safe_bewertung($sternebewertung,$bemerkung,$_SESSION['cookie'],$_SESSION['gerichtid']);
-            header('Location: /home');
+            header('Location: /bewertung?gerichtid='.$_GET["gerichtid"]);
         }
     }
 
