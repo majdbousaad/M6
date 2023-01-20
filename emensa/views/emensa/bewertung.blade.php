@@ -26,7 +26,9 @@
             <input type="submit" value="Abschicken" name="submit">
         </form>
         <strong style="color: red">{{$_SESSION['error_message']}}</strong>
-
+        @php
+        unset($_SESSION["error_message"]);
+        @endphp
         <p><h2>Die Letzten 30 Bewertungen:</h2>
         <table>
             <tr class="heading">
