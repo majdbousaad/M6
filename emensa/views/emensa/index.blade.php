@@ -60,7 +60,7 @@
         <h3> {{$zahlen_gerichte[0]}} Speisen</h3>
     </div>
     <div class="grid-main-element" id="kontakt">
-        <h1>Intersse geweckt? Wir informieren Sie!</h1>
+        <h1>Interesse geweckt? Wir informieren Sie!</h1>
         <br>
         <form method="post" action="/newsletter" id="kontakt_form">
 
@@ -93,14 +93,14 @@
             </ul>
 
         @elseif(isset($erfolgreich) && $erfolgreich == true)
-            <p style='color: green'> {{$rd->query["Name"]}}, Deine Daten wurden erfolgeich gespeichert!</p>
+            <p style='color: green'> {{$rd->query["Name"]}}, Deine Daten wurden erfolgreich gespeichert!</p>
         @endif
     </div>
     <div class="grid-main-element" id="wichtig">
         <h1>Das ist uns wichtig</h1>
         <ul>
-            <li>Beste frische Saisonale Zutaten</li>
-            <li>Ausgewagene abweckslungsreiche Gerichte</li>
+            <li>Beste frische saisonale Zutaten</li>
+            <li>Ausgewogene abwechslungsreiche Gerichte</li>
             <li>Sauberkeit</li>
             <li>Freundlichkeit gegenüber den Mitarbeitern</li>
         </ul>
